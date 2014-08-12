@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2008 The Android Open Source Project
+ * Copyright (C) 2014 Freescale Semiconductor, Inc.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -73,5 +74,6 @@ void* mmap64(void* addr, size_t size, int prot, int flags, int fd, off64_t offse
 }
 
 void* mmap(void* addr, size_t size, int prot, int flags, int fd, off_t offset) {
-  return mmap64(addr, size, prot, flags, fd, static_cast<off64_t>(offset));
+  size_t unsigned_offset = static_cast<size_t>(offset); // To avoid sign extension.
+  return mmap64(addr, size, prot, flags, fd, static_cast<off64_t>(unsigned_offset));
 }
