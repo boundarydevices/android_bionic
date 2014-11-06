@@ -47,7 +47,7 @@ struct snd_compr_avail {
  __u64 avail;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
  struct snd_compr_tstamp tstamp;
-};
+} __attribute__((packed));
 enum snd_compr_direction {
  SND_COMPRESS_PLAYBACK = 0,
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */

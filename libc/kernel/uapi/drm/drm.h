@@ -128,356 +128,336 @@ enum drm_map_type {
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
  _DRM_SCATTER_GATHER = 4,
  _DRM_CONSISTENT = 5,
+ _DRM_GEM = 6,
 };
-enum drm_map_flags {
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+enum drm_map_flags {
  _DRM_RESTRICTED = 0x01,
  _DRM_READ_ONLY = 0x02,
  _DRM_LOCKED = 0x04,
- _DRM_KERNEL = 0x08,
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ _DRM_KERNEL = 0x08,
  _DRM_WRITE_COMBINING = 0x10,
  _DRM_CONTAINS_LOCK = 0x20,
  _DRM_REMOVABLE = 0x40,
- _DRM_DRIVER = 0x80
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ _DRM_DRIVER = 0x80
 };
 struct drm_ctx_priv_map {
  unsigned int ctx_id;
- void *handle;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ void *handle;
 };
 struct drm_map {
  unsigned long offset;
- unsigned long size;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ unsigned long size;
  enum drm_map_type type;
  enum drm_map_flags flags;
  void *handle;
- int mtrr;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ int mtrr;
 };
 struct drm_client {
  int idx;
- int auth;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ int auth;
  unsigned long pid;
  unsigned long uid;
  unsigned long magic;
- unsigned long iocs;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ unsigned long iocs;
 };
 enum drm_stat_type {
  _DRM_STAT_LOCK,
- _DRM_STAT_OPENS,
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ _DRM_STAT_OPENS,
  _DRM_STAT_CLOSES,
  _DRM_STAT_IOCTLS,
  _DRM_STAT_LOCKS,
- _DRM_STAT_UNLOCKS,
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ _DRM_STAT_UNLOCKS,
  _DRM_STAT_VALUE,
  _DRM_STAT_BYTE,
  _DRM_STAT_COUNT,
- _DRM_STAT_IRQ,
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ _DRM_STAT_IRQ,
  _DRM_STAT_PRIMARY,
  _DRM_STAT_SECONDARY,
  _DRM_STAT_DMA,
- _DRM_STAT_SPECIAL,
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ _DRM_STAT_SPECIAL,
  _DRM_STAT_MISSED
 };
 struct drm_stats {
- unsigned long count;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ unsigned long count;
  struct {
  unsigned long value;
  enum drm_stat_type type;
- } data[15];
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ } data[15];
 };
 enum drm_lock_flags {
  _DRM_LOCK_READY = 0x01,
- _DRM_LOCK_QUIESCENT = 0x02,
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ _DRM_LOCK_QUIESCENT = 0x02,
  _DRM_LOCK_FLUSH = 0x04,
  _DRM_LOCK_FLUSH_ALL = 0x08,
  _DRM_HALT_ALL_QUEUES = 0x10,
- _DRM_HALT_CUR_QUEUES = 0x20
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ _DRM_HALT_CUR_QUEUES = 0x20
 };
 struct drm_lock {
  int context;
- enum drm_lock_flags flags;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ enum drm_lock_flags flags;
 };
 enum drm_dma_flags {
  _DRM_DMA_BLOCK = 0x01,
- _DRM_DMA_WHILE_LOCKED = 0x02,
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ _DRM_DMA_WHILE_LOCKED = 0x02,
  _DRM_DMA_PRIORITY = 0x04,
  _DRM_DMA_WAIT = 0x10,
  _DRM_DMA_SMALLER_OK = 0x20,
- _DRM_DMA_LARGER_OK = 0x40
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ _DRM_DMA_LARGER_OK = 0x40
 };
 struct drm_buf_desc {
  int count;
- int size;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ int size;
  int low_mark;
  int high_mark;
  enum {
- _DRM_PAGE_ALIGN = 0x01,
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ _DRM_PAGE_ALIGN = 0x01,
  _DRM_AGP_BUFFER = 0x02,
  _DRM_SG_BUFFER = 0x04,
  _DRM_FB_BUFFER = 0x08,
- _DRM_PCI_BUFFER_RO = 0x10
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ _DRM_PCI_BUFFER_RO = 0x10
  } flags;
  unsigned long agp_start;
 };
-struct drm_buf_info {
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+struct drm_buf_info {
  int count;
  struct drm_buf_desc __user *list;
 };
-struct drm_buf_free {
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+struct drm_buf_free {
  int count;
  int __user *list;
 };
-struct drm_buf_pub {
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+struct drm_buf_pub {
  int idx;
  int total;
  int used;
- void __user *address;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ void __user *address;
 };
 struct drm_buf_map {
  int count;
- void __user *virtual;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ void __user *virtual;
  struct drm_buf_pub __user *list;
 };
 struct drm_dma {
- int context;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ int context;
  int send_count;
  int __user *send_indices;
  int __user *send_sizes;
- enum drm_dma_flags flags;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ enum drm_dma_flags flags;
  int request_count;
  int request_size;
  int __user *request_indices;
- int __user *request_sizes;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ int __user *request_sizes;
  int granted_count;
 };
 enum drm_ctx_flags {
- _DRM_CONTEXT_PRESERVED = 0x01,
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ _DRM_CONTEXT_PRESERVED = 0x01,
  _DRM_CONTEXT_2DONLY = 0x02
 };
 struct drm_ctx {
- drm_context_t handle;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ drm_context_t handle;
  enum drm_ctx_flags flags;
 };
 struct drm_ctx_res {
- int count;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ int count;
  struct drm_ctx __user *contexts;
 };
 struct drm_draw {
- drm_drawable_t handle;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ drm_drawable_t handle;
 };
 typedef enum {
  DRM_DRAWABLE_CLIPRECTS,
-} drm_drawable_info_type_t;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+} drm_drawable_info_type_t;
 struct drm_update_draw {
  drm_drawable_t handle;
  unsigned int type;
- unsigned int num;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ unsigned int num;
  unsigned long long data;
 };
 struct drm_auth {
- drm_magic_t magic;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ drm_magic_t magic;
 };
 struct drm_irq_busid {
  int irq;
- int busnum;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ int busnum;
  int devnum;
  int funcnum;
 };
-enum drm_vblank_seq_type {
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+enum drm_vblank_seq_type {
  _DRM_VBLANK_ABSOLUTE = 0x0,
  _DRM_VBLANK_RELATIVE = 0x1,
  _DRM_VBLANK_HIGH_CRTC_MASK = 0x0000003e,
- _DRM_VBLANK_EVENT = 0x4000000,
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ _DRM_VBLANK_EVENT = 0x4000000,
  _DRM_VBLANK_FLIP = 0x8000000,
  _DRM_VBLANK_NEXTONMISS = 0x10000000,
  _DRM_VBLANK_SECONDARY = 0x20000000,
- _DRM_VBLANK_SIGNAL = 0x40000000
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ _DRM_VBLANK_SIGNAL = 0x40000000
 };
 #define _DRM_VBLANK_HIGH_CRTC_SHIFT 1
 #define _DRM_VBLANK_TYPES_MASK (_DRM_VBLANK_ABSOLUTE | _DRM_VBLANK_RELATIVE)
-#define _DRM_VBLANK_FLAGS_MASK (_DRM_VBLANK_EVENT | _DRM_VBLANK_SIGNAL |   _DRM_VBLANK_SECONDARY | _DRM_VBLANK_NEXTONMISS)
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+#define _DRM_VBLANK_FLAGS_MASK (_DRM_VBLANK_EVENT | _DRM_VBLANK_SIGNAL |   _DRM_VBLANK_SECONDARY | _DRM_VBLANK_NEXTONMISS)
 struct drm_wait_vblank_request {
  enum drm_vblank_seq_type type;
  unsigned int sequence;
- unsigned long signal;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ unsigned long signal;
 };
 struct drm_wait_vblank_reply {
  enum drm_vblank_seq_type type;
- unsigned int sequence;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ unsigned int sequence;
  long tval_sec;
  long tval_usec;
 };
-union drm_wait_vblank {
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+union drm_wait_vblank {
  struct drm_wait_vblank_request request;
  struct drm_wait_vblank_reply reply;
 };
-#define _DRM_PRE_MODESET 1
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+#define _DRM_PRE_MODESET 1
 #define _DRM_POST_MODESET 2
 struct drm_modeset_ctl {
  __u32 crtc;
- __u32 cmd;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ __u32 cmd;
 };
 struct drm_agp_mode {
  unsigned long mode;
-};
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+};
 struct drm_agp_buffer {
  unsigned long size;
  unsigned long handle;
- unsigned long type;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ unsigned long type;
  unsigned long physical;
 };
 struct drm_agp_binding {
- unsigned long handle;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ unsigned long handle;
  unsigned long offset;
 };
 struct drm_agp_info {
- int agp_version_major;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ int agp_version_major;
  int agp_version_minor;
  unsigned long mode;
  unsigned long aperture_base;
- unsigned long aperture_size;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ unsigned long aperture_size;
  unsigned long memory_allowed;
  unsigned long memory_used;
  unsigned short id_vendor;
- unsigned short id_device;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ unsigned short id_device;
 };
 struct drm_scatter_gather {
  unsigned long size;
- unsigned long handle;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ unsigned long handle;
 };
 struct drm_set_version {
  int drm_di_major;
- int drm_di_minor;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ int drm_di_minor;
  int drm_dd_major;
  int drm_dd_minor;
 };
-struct drm_gem_close {
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+struct drm_gem_close {
  __u32 handle;
  __u32 pad;
 };
-struct drm_gem_flink {
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+struct drm_gem_flink {
  __u32 handle;
  __u32 name;
 };
-struct drm_gem_open {
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+struct drm_gem_open {
  __u32 name;
  __u32 handle;
  __u64 size;
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 };
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
-#define DRM_CAP_DUMB_BUFFER 0x1
-#define DRM_CAP_VBLANK_HIGH_CRTC 0x2
-#define DRM_CAP_DUMB_PREFERRED_DEPTH 0x3
-#define DRM_CAP_DUMB_PREFER_SHADOW 0x4
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
-#define DRM_CAP_PRIME 0x5
-#define DRM_PRIME_CAP_IMPORT 0x1
-#define DRM_PRIME_CAP_EXPORT 0x2
-#define DRM_CAP_TIMESTAMP_MONOTONIC 0x6
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
-#define DRM_CAP_ASYNC_PAGE_FLIP 0x7
-#define DRM_CAP_CURSOR_WIDTH 0x8
-#define DRM_CAP_CURSOR_HEIGHT 0x9
 struct drm_get_cap {
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
  __u64 capability;
  __u64 value;
-};
-#define DRM_CLIENT_CAP_STEREO_3D 1
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
-struct drm_set_client_cap {
- __u64 capability;
- __u64 value;
 };
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 #define DRM_CLOEXEC O_CLOEXEC
 struct drm_prime_handle {
  __u32 handle;
- __u32 flags;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ __u32 flags;
  __s32 fd;
 };
 #include <drm/drm_mode.h>
-#define DRM_IOCTL_BASE 'd'
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+#define DRM_IOCTL_BASE 'd'
 #define DRM_IO(nr) _IO(DRM_IOCTL_BASE,nr)
 #define DRM_IOR(nr,type) _IOR(DRM_IOCTL_BASE,nr,type)
 #define DRM_IOW(nr,type) _IOW(DRM_IOCTL_BASE,nr,type)
-#define DRM_IOWR(nr,type) _IOWR(DRM_IOCTL_BASE,nr,type)
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+#define DRM_IOWR(nr,type) _IOWR(DRM_IOCTL_BASE,nr,type)
 #define DRM_IOCTL_VERSION DRM_IOWR(0x00, struct drm_version)
 #define DRM_IOCTL_GET_UNIQUE DRM_IOWR(0x01, struct drm_unique)
 #define DRM_IOCTL_GET_MAGIC DRM_IOR( 0x02, struct drm_auth)
-#define DRM_IOCTL_IRQ_BUSID DRM_IOWR(0x03, struct drm_irq_busid)
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+#define DRM_IOCTL_IRQ_BUSID DRM_IOWR(0x03, struct drm_irq_busid)
 #define DRM_IOCTL_GET_MAP DRM_IOWR(0x04, struct drm_map)
 #define DRM_IOCTL_GET_CLIENT DRM_IOWR(0x05, struct drm_client)
 #define DRM_IOCTL_GET_STATS DRM_IOR( 0x06, struct drm_stats)
-#define DRM_IOCTL_SET_VERSION DRM_IOWR(0x07, struct drm_set_version)
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+#define DRM_IOCTL_SET_VERSION DRM_IOWR(0x07, struct drm_set_version)
 #define DRM_IOCTL_MODESET_CTL DRM_IOW(0x08, struct drm_modeset_ctl)
 #define DRM_IOCTL_GEM_CLOSE DRM_IOW (0x09, struct drm_gem_close)
 #define DRM_IOCTL_GEM_FLINK DRM_IOWR(0x0a, struct drm_gem_flink)
-#define DRM_IOCTL_GEM_OPEN DRM_IOWR(0x0b, struct drm_gem_open)
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+#define DRM_IOCTL_GEM_OPEN DRM_IOWR(0x0b, struct drm_gem_open)
 #define DRM_IOCTL_GET_CAP DRM_IOWR(0x0c, struct drm_get_cap)
-#define DRM_IOCTL_SET_CLIENT_CAP DRM_IOW( 0x0d, struct drm_set_client_cap)
 #define DRM_IOCTL_SET_UNIQUE DRM_IOW( 0x10, struct drm_unique)
 #define DRM_IOCTL_AUTH_MAGIC DRM_IOW( 0x11, struct drm_auth)
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
@@ -566,75 +546,84 @@ struct drm_prime_handle {
 #define DRM_IOCTL_MODE_OBJ_GETPROPERTIES DRM_IOWR(0xB9, struct drm_mode_obj_get_properties)
 #define DRM_IOCTL_MODE_OBJ_SETPROPERTY DRM_IOWR(0xBA, struct drm_mode_obj_set_property)
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
-#define DRM_IOCTL_MODE_CURSOR2 DRM_IOWR(0xBB, struct drm_mode_cursor2)
 #define DRM_COMMAND_BASE 0x40
 #define DRM_COMMAND_END 0xA0
 struct drm_event {
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
  __u32 type;
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
  __u32 length;
 };
 #define DRM_EVENT_VBLANK 0x01
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 #define DRM_EVENT_FLIP_COMPLETE 0x02
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 struct drm_event_vblank {
  struct drm_event base;
  __u64 user_data;
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
  __u32 tv_sec;
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
  __u32 tv_usec;
  __u32 sequence;
  __u32 reserved;
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 };
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+#define DRM_CAP_DUMB_BUFFER 0x1
+#define DRM_CAP_VBLANK_HIGH_CRTC 0x2
+#define DRM_CAP_DUMB_PREFERRED_DEPTH 0x3
+#define DRM_CAP_DUMB_PREFER_SHADOW 0x4
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+#define DRM_CAP_PRIME 0x5
+#define DRM_CAP_TIMESTAMP_MONOTONIC 0x6
+#define DRM_PRIME_CAP_IMPORT 0x1
+#define DRM_PRIME_CAP_EXPORT 0x2
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 typedef struct drm_clip_rect drm_clip_rect_t;
 typedef struct drm_drawable_info drm_drawable_info_t;
 typedef struct drm_tex_region drm_tex_region_t;
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 typedef struct drm_hw_lock drm_hw_lock_t;
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 typedef struct drm_version drm_version_t;
 typedef struct drm_unique drm_unique_t;
 typedef struct drm_list drm_list_t;
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 typedef struct drm_block drm_block_t;
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 typedef struct drm_control drm_control_t;
 typedef enum drm_map_type drm_map_type_t;
 typedef enum drm_map_flags drm_map_flags_t;
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 typedef struct drm_ctx_priv_map drm_ctx_priv_map_t;
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 typedef struct drm_map drm_map_t;
 typedef struct drm_client drm_client_t;
 typedef enum drm_stat_type drm_stat_type_t;
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 typedef struct drm_stats drm_stats_t;
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 typedef enum drm_lock_flags drm_lock_flags_t;
 typedef struct drm_lock drm_lock_t;
 typedef enum drm_dma_flags drm_dma_flags_t;
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 typedef struct drm_buf_desc drm_buf_desc_t;
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 typedef struct drm_buf_info drm_buf_info_t;
 typedef struct drm_buf_free drm_buf_free_t;
 typedef struct drm_buf_pub drm_buf_pub_t;
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 typedef struct drm_buf_map drm_buf_map_t;
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 typedef struct drm_dma drm_dma_t;
 typedef union drm_wait_vblank drm_wait_vblank_t;
 typedef struct drm_agp_mode drm_agp_mode_t;
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 typedef enum drm_ctx_flags drm_ctx_flags_t;
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 typedef struct drm_ctx drm_ctx_t;
 typedef struct drm_ctx_res drm_ctx_res_t;
 typedef struct drm_draw drm_draw_t;
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 typedef struct drm_update_draw drm_update_draw_t;
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 typedef struct drm_auth drm_auth_t;
 typedef struct drm_irq_busid drm_irq_busid_t;
 typedef enum drm_vblank_seq_type drm_vblank_seq_type_t;
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 typedef struct drm_agp_buffer drm_agp_buffer_t;
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 typedef struct drm_agp_binding drm_agp_binding_t;
 typedef struct drm_agp_info drm_agp_info_t;
 typedef struct drm_scatter_gather drm_scatter_gather_t;
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 typedef struct drm_set_version drm_set_version_t;
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 #endif

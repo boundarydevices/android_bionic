@@ -23,28 +23,28 @@
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 struct timex {
  unsigned int modes;
- __kernel_long_t offset;
- __kernel_long_t freq;
+ long offset;
+ long freq;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
- __kernel_long_t maxerror;
- __kernel_long_t esterror;
+ long maxerror;
+ long esterror;
  int status;
- __kernel_long_t constant;
+ long constant;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
- __kernel_long_t precision;
- __kernel_long_t tolerance;
+ long precision;
+ long tolerance;
  struct timeval time;
- __kernel_long_t tick;
+ long tick;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
- __kernel_long_t ppsfreq;
- __kernel_long_t jitter;
+ long ppsfreq;
+ long jitter;
  int shift;
- __kernel_long_t stabil;
+ long stabil;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
- __kernel_long_t jitcnt;
- __kernel_long_t calcnt;
- __kernel_long_t errcnt;
- __kernel_long_t stbcnt;
+ long jitcnt;
+ long calcnt;
+ long errcnt;
+ long stbcnt;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
  int tai;
  int :32; int :32; int :32; int :32;

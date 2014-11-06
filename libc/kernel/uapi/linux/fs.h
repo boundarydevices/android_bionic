@@ -49,10 +49,10 @@ struct files_stat_struct {
  unsigned long max_files;
 };
 struct inodes_stat_t {
- long nr_inodes;
+ int nr_inodes;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
- long nr_unused;
- long dummy[5];
+ int nr_unused;
+ int dummy[5];
 };
 #define NR_FILE 8192
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */

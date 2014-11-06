@@ -69,12 +69,12 @@ struct shminfo {
 };
 struct shm_info {
  int used_ids;
- __kernel_ulong_t shm_tot;
+ unsigned long shm_tot;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
- __kernel_ulong_t shm_rss;
- __kernel_ulong_t shm_swp;
- __kernel_ulong_t swap_attempts;
- __kernel_ulong_t swap_successes;
+ unsigned long shm_rss;
+ unsigned long shm_swp;
+ unsigned long swap_attempts;
+ unsigned long swap_successes;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 };
 #endif
