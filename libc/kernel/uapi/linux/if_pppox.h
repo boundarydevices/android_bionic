@@ -41,7 +41,7 @@ struct pppoe_addr {
 };
 struct pptp_addr {
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
- __be16 call_id;
+ __u16 call_id;
  struct in_addr sin_addr;
 };
 #define PX_PROTO_OE 0

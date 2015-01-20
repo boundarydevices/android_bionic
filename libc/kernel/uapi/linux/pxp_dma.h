@@ -46,7 +46,7 @@ typedef unsigned char bool;
 #define PXP_PIX_FMT_YVYU fourcc('Y', 'V', 'Y', 'U')
 #define PXP_PIX_FMT_Y41P fourcc('Y', '4', '1', 'P')
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
-#define PXP_PIX_FMT_YUV444 fourcc('Y', '4', '4', '4')
+#define PXP_PIX_FMT_VUY444 fourcc('V', 'U', 'Y', 'A')
 #define PXP_PIX_FMT_NV12 fourcc('N', 'V', '1', '2')
 #define PXP_PIX_FMT_NV21 fourcc('N', 'V', '2', '1')
 #define PXP_PIX_FMT_NV16 fourcc('N', 'V', '1', '6')

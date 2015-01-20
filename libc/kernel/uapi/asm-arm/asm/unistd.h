@@ -456,26 +456,30 @@
 #define __NR_kcmp (__NR_SYSCALL_BASE+378)
 #define __NR_finit_module (__NR_SYSCALL_BASE+379)
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+#define __NR_sched_setattr (__NR_SYSCALL_BASE+380)
+#define __NR_sched_getattr (__NR_SYSCALL_BASE+381)
+#define __NR_seccomp (__NR_SYSCALL_BASE+383)
 #define __ARM_NR_BASE (__NR_SYSCALL_BASE+0x0f0000)
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 #define __ARM_NR_breakpoint (__ARM_NR_BASE+1)
 #define __ARM_NR_cacheflush (__ARM_NR_BASE+2)
 #define __ARM_NR_usr26 (__ARM_NR_BASE+3)
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 #define __ARM_NR_usr32 (__ARM_NR_BASE+4)
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 #define __ARM_NR_set_tls (__ARM_NR_BASE+5)
 #undef __NR_time
 #undef __NR_umount
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 #undef __NR_stime
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 #undef __NR_alarm
 #undef __NR_utime
 #undef __NR_getrlimit
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 #undef __NR_select
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 #undef __NR_readdir
 #undef __NR_mmap
 #undef __NR_socketcall
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 #undef __NR_syscall
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 #undef __NR_ipc
 #endif

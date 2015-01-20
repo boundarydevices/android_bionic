@@ -99,58 +99,40 @@ struct asrc_config {
  enum asrc_inclk inclk;
  enum asrc_outclk outclk;
 };
-struct asrc_pair {
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
- unsigned int start_channel;
- unsigned int chn_num;
- unsigned int chn_max;
- unsigned int active;
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
- unsigned int overload_error;
-};
 struct asrc_req {
- unsigned int chn_num;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ unsigned int chn_num;
  enum asrc_pair_index index;
 };
 struct asrc_querybuf {
- unsigned int buffer_index;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ unsigned int buffer_index;
  unsigned int input_length;
  unsigned int output_length;
  unsigned long input_offset;
- unsigned long output_offset;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ unsigned long output_offset;
 };
 struct asrc_convert_buffer {
  void *input_buffer_vaddr;
- void *output_buffer_vaddr;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ void *output_buffer_vaddr;
  unsigned int input_buffer_length;
  unsigned int output_buffer_length;
 };
-struct asrc_buffer {
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
- unsigned int index;
- unsigned int length;
- unsigned int output_last_length;
- int buf_valid;
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
-};
 struct asrc_status_flags {
  enum asrc_pair_index index;
  unsigned int overload_error;
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 };
-#define ASRC_BUF_NA -35
-#define ASRC_BUF_AV 35
-enum asrc_error_status {
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+enum asrc_error_status {
  ASRC_TASK_Q_OVERLOAD = 0x01,
  ASRC_OUTPUT_TASK_OVERLOAD = 0x02,
  ASRC_INPUT_TASK_OVERLOAD = 0x04,
- ASRC_OUTPUT_BUFFER_OVERFLOW = 0x08,
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ ASRC_OUTPUT_BUFFER_OVERFLOW = 0x08,
  ASRC_INPUT_BUFFER_UNDERRUN = 0x10,
 };
 #endif
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */

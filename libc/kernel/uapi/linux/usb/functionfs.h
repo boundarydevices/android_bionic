@@ -43,7 +43,7 @@ struct usb_functionfs_descs_head {
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
  __le32 fs_count;
  __le32 hs_count;
-} __attribute__((packed));
+} __attribute__((packed, deprecated));
 struct usb_functionfs_strings_head {
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
  __le32 magic;
