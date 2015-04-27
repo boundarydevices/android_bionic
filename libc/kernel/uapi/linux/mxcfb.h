@@ -58,6 +58,11 @@ struct mxcfb_gamma {
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
  int slopek[16];
 };
+struct mxcfb_gpu_split_fmt {
+ struct fb_var_screeninfo var;
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ unsigned long offset;
+};
 struct mxcfb_rect {
  __u32 top;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
@@ -79,74 +84,94 @@ struct mxcfb_rect {
 #define UPDATE_SCHEME_QUEUE_AND_MERGE 2
 #define UPDATE_MODE_PARTIAL 0x0
 #define UPDATE_MODE_FULL 0x1
-#define WAVEFORM_MODE_AUTO 257
+#define WAVEFORM_MODE_GLR16 4
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+#define WAVEFORM_MODE_GLD16 5
+#define WAVEFORM_MODE_AUTO 257
 #define TEMP_USE_AMBIENT 0x1000
 #define EPDC_FLAG_ENABLE_INVERSION 0x01
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 #define EPDC_FLAG_FORCE_MONOCHROME 0x02
 #define EPDC_FLAG_USE_CMAP 0x04
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 #define EPDC_FLAG_USE_ALT_BUFFER 0x100
 #define EPDC_FLAG_TEST_COLLISION 0x200
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 #define EPDC_FLAG_GROUP_UPDATE 0x400
 #define EPDC_FLAG_USE_DITHERING_Y1 0x2000
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 #define EPDC_FLAG_USE_DITHERING_Y4 0x4000
+#define EPDC_FLAG_USE_REGAL 0x8000
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+enum mxcfb_dithering_mode {
+ EPDC_FLAG_USE_DITHERING_PASSTHROUGH = 0x0,
+ EPDC_FLAG_USE_DITHERING_FLOYD_STEINBERG,
+ EPDC_FLAG_USE_DITHERING_ATKINSON,
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ EPDC_FLAG_USE_DITHERING_ORDERED,
+ EPDC_FLAG_USE_DITHERING_QUANT_ONLY,
+ EPDC_FLAG_USE_DITHERING_MAX,
+};
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 #define FB_POWERDOWN_DISABLE -1
 struct mxcfb_alt_buffer_data {
  __u32 phys_addr;
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
  __u32 width;
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
  __u32 height;
  struct mxcfb_rect alt_update_region;
 };
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 struct mxcfb_update_data {
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
  struct mxcfb_rect update_region;
  __u32 waveform_mode;
  __u32 update_mode;
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
  __u32 update_marker;
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
  int temp;
  unsigned int flags;
- struct mxcfb_alt_buffer_data alt_buffer_data;
+ int dither_mode;
+ int quant_bit;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ struct mxcfb_alt_buffer_data alt_buffer_data;
 };
 struct mxcfb_update_marker_data {
  __u32 update_marker;
- __u32 collision_test;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ __u32 collision_test;
 };
 struct mxcfb_waveform_modes {
  int mode_init;
- int mode_du;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ int mode_du;
  int mode_gc4;
  int mode_gc8;
  int mode_gc16;
- int mode_gc32;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ int mode_gc32;
 };
 struct mxcfb_csc_matrix {
  int param[5][3];
-};
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+};
 #define MXCFB_WAIT_FOR_VSYNC _IOW('F', 0x20, u_int32_t)
 #define MXCFB_SET_GBL_ALPHA _IOW('F', 0x21, struct mxcfb_gbl_alpha)
 #define MXCFB_SET_CLR_KEY _IOW('F', 0x22, struct mxcfb_color_key)
-#define MXCFB_SET_OVERLAY_POS _IOWR('F', 0x24, struct mxcfb_pos)
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+#define MXCFB_SET_OVERLAY_POS _IOWR('F', 0x24, struct mxcfb_pos)
 #define MXCFB_GET_FB_IPU_CHAN _IOR('F', 0x25, u_int32_t)
 #define MXCFB_SET_LOC_ALPHA _IOWR('F', 0x26, struct mxcfb_loc_alpha)
 #define MXCFB_SET_LOC_ALP_BUF _IOW('F', 0x27, unsigned long)
-#define MXCFB_SET_GAMMA _IOW('F', 0x28, struct mxcfb_gamma)
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+#define MXCFB_SET_GAMMA _IOW('F', 0x28, struct mxcfb_gamma)
 #define MXCFB_GET_FB_IPU_DI _IOR('F', 0x29, u_int32_t)
 #define MXCFB_GET_DIFMT _IOR('F', 0x2A, u_int32_t)
 #define MXCFB_GET_FB_BLANK _IOR('F', 0x2B, u_int32_t)
-#define MXCFB_SET_DIFMT _IOW('F', 0x2C, u_int32_t)
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+#define MXCFB_SET_DIFMT _IOW('F', 0x2C, u_int32_t)
 #define MXCFB_CSC_UPDATE _IOW('F', 0x2D, struct mxcfb_csc_matrix)
+#define MXCFB_SET_GPU_SPLIT_FMT _IOW('F', 0x2F, struct mxcfb_gpu_split_fmt)
+#define MXCFB_SET_PREFETCH _IOW('F', 0x30, int)
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+#define MXCFB_GET_PREFETCH _IOR('F', 0x31, int)
 #define MXCFB_SET_WAVEFORM_MODES _IOW('F', 0x2B, struct mxcfb_waveform_modes)
 #define MXCFB_SET_TEMPERATURE _IOW('F', 0x2C, int32_t)
 #define MXCFB_SET_AUTO_UPDATE_MODE _IOW('F', 0x2D, __u32)
