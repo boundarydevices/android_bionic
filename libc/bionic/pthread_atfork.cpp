@@ -1,6 +1,7 @@
 /*
  * Copyright (C) 2008 The Android Open Source Project
  * All rights reserved.
+ * Copyright (C) 2015 Freescale Semiconductor, Inc. All Rights Reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -28,6 +29,8 @@
 
 #include <errno.h>
 #include <pthread.h>
+
+__LIBC_HIDDEN__ extern pthread_mutex_t g_thread_list_lock;
 
 struct atfork_t {
   atfork_t* next;
@@ -66,6 +69,8 @@ void __bionic_atfork_run_prepare() {
 }
 
 void __bionic_atfork_run_child() {
+  g_thread_list_lock = PTHREAD_MUTEX_INITIALIZER;
+
   for (atfork_t* it = g_atfork_list.first; it != NULL; it = it->next) {
     if (it->child != NULL) {
       it->child();
