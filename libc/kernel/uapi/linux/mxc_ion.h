@@ -1,30 +1,29 @@
-/*
- * drivers/gpu/mxc/mxc_ion.h
- *
- * Copyright (C) 2011 Google, Inc.
- * Copyright (C) 2012-2014 Freescale Semiconductor, Inc.
- *
- * This software is licensed under the terms of the GNU General Public
- * License version 2, as published by the Free Software Foundation, and
- * may be copied, distributed, and modified under those terms.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- */
-
+/****************************************************************************
+ ****************************************************************************
+ ***
+ ***   This header was automatically generated from a Linux kernel header
+ ***   of the same name, to make information necessary for userspace to
+ ***   call into the kernel available to libc.  It contains only constants,
+ ***   structures, and macros generated from the original header, and thus,
+ ***   contains no copyrightable information.
+ ***
+ ***   To edit the content of this header, modify the corresponding
+ ***   source file (e.g. under external/kernel-headers/original/) then
+ ***   run bionic/libc/kernel/tools/update_all.py
+ ***
+ ***   Any manual change here will be lost the next time this script will
+ ***   be run. You've been warned!
+ ***
+ ****************************************************************************
+ ****************************************************************************/
 #ifndef _LINUX_MXC_ION_H
 #define _LINUX_MXC_ION_H
-
 #include <linux/ion.h>
-
 struct ion_phys_data {
-        ion_user_handle_t handle;
-        unsigned long phys;
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ ion_user_handle_t handle;
+ unsigned long phys;
 };
-
-#define ION_IOC_PHYS   _IOWR(ION_IOC_MAGIC, 7, struct ion_phys_data)
-
+#define ION_IOC_PHYS _IOWR(ION_IOC_MAGIC, 7, struct ion_phys_data)
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 #endif
