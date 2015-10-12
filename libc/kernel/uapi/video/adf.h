@@ -62,7 +62,7 @@ struct adf_event {
 struct adf_vsync_event {
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
   struct adf_event base;
-  __aligned_u64 timestamp;
+  __u64 timestamp;
 };
 struct adf_hotplug_event {
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
@@ -77,12 +77,12 @@ struct adf_buffer_config {
   __u32 h;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
   __u32 format;
-  __s32 fd[ADF_MAX_PLANES];
+  __s64 fd[ADF_MAX_PLANES];
   __u32 offset[ADF_MAX_PLANES];
   __u32 pitch[ADF_MAX_PLANES];
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
   __u8 n_planes;
-  __s32 acquire_fence;
+  __s64 acquire_fence;
 };
 #define ADF_MAX_BUFFERS (4096 / sizeof(struct adf_buffer_config))
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
@@ -94,7 +94,7 @@ struct adf_post_config {
   struct adf_buffer_config __user * bufs;
   size_t custom_data_size;
   void __user * custom_data;
-  __s32 complete_fence;
+  __s64 complete_fence;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 };
 #define ADF_MAX_INTERFACES (4096 / sizeof(__u32))
@@ -103,7 +103,7 @@ struct adf_simple_buffer_alloc {
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
   __u16 h;
   __u32 format;
-  __s32 fd;
+  __s64 fd;
   __u32 offset;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
   __u32 pitch;
@@ -111,7 +111,7 @@ struct adf_simple_buffer_alloc {
 struct adf_simple_post_config {
   struct adf_buffer_config buf;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
-  __s32 complete_fence;
+  __s64 complete_fence;
 };
 struct adf_attachment_config {
   __u32 overlay_engine;

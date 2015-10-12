@@ -34,56 +34,52 @@
 #define VIRTIO_BLK_F_WCE 9
 #define VIRTIO_BLK_F_TOPOLOGY 10
 #define VIRTIO_BLK_F_CONFIG_WCE 11
-#define VIRTIO_BLK_F_MQ 12
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 #define VIRTIO_BLK_F_FLUSH VIRTIO_BLK_F_WCE
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 #define VIRTIO_BLK_ID_BYTES 20
 struct virtio_blk_config {
   __u64 capacity;
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
   __u32 size_max;
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
   __u32 seg_max;
   struct virtio_blk_geometry {
     __u16 cylinders;
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
     __u8 heads;
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
     __u8 sectors;
   } geometry;
   __u32 blk_size;
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
   __u8 physical_block_exp;
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
   __u8 alignment_offset;
   __u16 min_io_size;
   __u32 opt_io_size;
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
   __u8 wce;
-  __u8 unused;
-  __u16 num_queues;
-} __attribute__((packed));
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+} __attribute__((packed));
 #define VIRTIO_BLK_T_IN 0
 #define VIRTIO_BLK_T_OUT 1
 #define VIRTIO_BLK_T_SCSI_CMD 2
-#define VIRTIO_BLK_T_FLUSH 4
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+#define VIRTIO_BLK_T_FLUSH 4
 #define VIRTIO_BLK_T_GET_ID 8
 #define VIRTIO_BLK_T_BARRIER 0x80000000
 struct virtio_blk_outhdr {
-  __u32 type;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+  __u32 type;
   __u32 ioprio;
   __u64 sector;
 };
-struct virtio_scsi_inhdr {
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+struct virtio_scsi_inhdr {
   __u32 errors;
   __u32 data_len;
   __u32 sense_len;
-  __u32 residual;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+  __u32 residual;
 };
 #define VIRTIO_BLK_S_OK 0
 #define VIRTIO_BLK_S_IOERR 1
-#define VIRTIO_BLK_S_UNSUPP 2
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+#define VIRTIO_BLK_S_UNSUPP 2
 #endif

@@ -36,6 +36,4 @@ struct rand_pool_info {
   __u32 buf[0];
 };
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
-#define GRND_NONBLOCK 0x0001
-#define GRND_RANDOM 0x0002
 #endif

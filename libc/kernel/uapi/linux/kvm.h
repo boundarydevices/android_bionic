@@ -382,11 +382,6 @@ struct kvm_vapic_addr {
 #define KVM_MP_STATE_HALTED 3
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 #define KVM_MP_STATE_SIPI_RECEIVED 4
-#define KVM_MP_STATE_STOPPED 5
-#define KVM_MP_STATE_CHECK_STOP 6
-#define KVM_MP_STATE_OPERATING 7
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
-#define KVM_MP_STATE_LOAD 8
 struct kvm_mp_state {
   __u32 mp_state;
 };
@@ -401,12 +396,7 @@ struct kvm_s390_psw {
 #define KVM_S390_SIGP_SET_PREFIX 0xfffe0002u
 #define KVM_S390_RESTART 0xfffe0003u
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
-#define KVM_S390_INT_PFAULT_INIT 0xfffe0004u
-#define KVM_S390_INT_PFAULT_DONE 0xfffe0005u
 #define KVM_S390_MCHK 0xfffe1000u
-#define KVM_S390_INT_CLOCK_COMP 0xffff1004u
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
-#define KVM_S390_INT_CPU_TIMER 0xffff1005u
 #define KVM_S390_INT_VIRTIO 0xffff2603u
 #define KVM_S390_INT_SERVICE 0xffff2401u
 #define KVM_S390_INT_EMERGENCY 0xffff1201u
@@ -422,91 +412,21 @@ struct kvm_s390_interrupt {
   __u64 parm64;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 };
-struct kvm_s390_io_info {
-  __u16 subchannel_id;
-  __u16 subchannel_nr;
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
-  __u32 io_int_parm;
-  __u32 io_int_word;
-};
-struct kvm_s390_ext_info {
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
-  __u32 ext_params;
-  __u32 pad;
-  __u64 ext_params2;
-};
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
-struct kvm_s390_pgm_info {
-  __u64 trans_exc_code;
-  __u64 mon_code;
-  __u64 per_address;
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
-  __u32 data_exc_code;
-  __u16 code;
-  __u16 mon_class_nr;
-  __u8 per_code;
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
-  __u8 per_atmid;
-  __u8 exc_access_id;
-  __u8 per_access_id;
-  __u8 op_access_id;
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
-  __u8 pad[3];
-};
-struct kvm_s390_prefix_info {
-  __u32 address;
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
-};
-struct kvm_s390_extcall_info {
-  __u16 code;
-};
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
-struct kvm_s390_emerg_info {
-  __u16 code;
-};
-struct kvm_s390_mchk_info {
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
-  __u64 cr14;
-  __u64 mcic;
-  __u64 failing_storage_address;
-  __u32 ext_damage_code;
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
-  __u32 pad;
-  __u8 fixed_logout[16];
-};
-struct kvm_s390_irq {
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
-  __u64 type;
-  union {
-    struct kvm_s390_io_info io;
-    struct kvm_s390_ext_info ext;
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
-    struct kvm_s390_pgm_info pgm;
-    struct kvm_s390_emerg_info emerg;
-    struct kvm_s390_extcall_info extcall;
-    struct kvm_s390_prefix_info prefix;
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
-    struct kvm_s390_mchk_info mchk;
-    char reserved[64];
-  } u;
-};
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 #define KVM_GUESTDBG_ENABLE 0x00000001
 #define KVM_GUESTDBG_SINGLESTEP 0x00000002
 struct kvm_guest_debug {
-  __u32 control;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+  __u32 control;
   __u32 pad;
   struct kvm_guest_debug_arch arch;
 };
-enum {
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+enum {
   kvm_ioeventfd_flag_nr_datamatch,
   kvm_ioeventfd_flag_nr_pio,
   kvm_ioeventfd_flag_nr_deassign,
-  kvm_ioeventfd_flag_nr_virtio_ccw_notify,
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
-  kvm_ioeventfd_flag_nr_fast_mmio,
+  kvm_ioeventfd_flag_nr_virtio_ccw_notify,
   kvm_ioeventfd_flag_nr_max,
 };
 #define KVM_IOEVENTFD_FLAG_DATAMATCH (1 << kvm_ioeventfd_flag_nr_datamatch)
@@ -732,54 +652,34 @@ struct kvm_ppc_smmu_info {
 #define KVM_CAP_EXT_EMUL_CPUID 95
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 #define KVM_CAP_HYPERV_TIME 96
-#define KVM_CAP_IOAPIC_POLARITY_IGNORED 97
-#define KVM_CAP_ENABLE_CAP_VM 98
-#define KVM_CAP_S390_IRQCHIP 99
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
-#define KVM_CAP_IOEVENTFD_NO_LENGTH 100
-#define KVM_CAP_VM_ATTRIBUTES 101
 #define KVM_CAP_ARM_PSCI_0_2 102
-#define KVM_CAP_PPC_FIXUP_HCALL 103
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
-#define KVM_CAP_PPC_ENABLE_HCALL 104
 #define KVM_CAP_CHECK_EXTENSION_VM 105
 #ifdef KVM_CAP_IRQ_ROUTING
-struct kvm_irq_routing_irqchip {
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+struct kvm_irq_routing_irqchip {
   __u32 irqchip;
   __u32 pin;
 };
-struct kvm_irq_routing_msi {
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+struct kvm_irq_routing_msi {
   __u32 address_lo;
   __u32 address_hi;
   __u32 data;
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
   __u32 pad;
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 };
-struct kvm_irq_routing_s390_adapter {
-  __u64 ind_addr;
-  __u64 summary_addr;
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
-  __u64 ind_offset;
-  __u32 summary_offset;
-  __u32 adapter_id;
-};
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 #define KVM_IRQ_ROUTING_IRQCHIP 1
 #define KVM_IRQ_ROUTING_MSI 2
-#define KVM_IRQ_ROUTING_S390_ADAPTER 3
-struct kvm_irq_routing_entry {
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+struct kvm_irq_routing_entry {
   __u32 gsi;
   __u32 type;
   __u32 flags;
-  __u32 pad;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+  __u32 pad;
   union {
     struct kvm_irq_routing_irqchip irqchip;
     struct kvm_irq_routing_msi msi;
-    struct kvm_irq_routing_s390_adapter adapter;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
     __u32 pad[8];
   } u;

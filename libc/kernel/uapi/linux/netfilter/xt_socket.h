@@ -34,5 +34,7 @@ struct xt_socket_mtinfo2 {
   __u8 flags;
 };
 #define XT_SOCKET_FLAGS_V2 (XT_SOCKET_TRANSPARENT | XT_SOCKET_NOWILDCARD)
-#endif
+struct sock * xt_socket_get4_sk(const struct sk_buff * skb, struct xt_action_param * par);
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+struct sock * xt_socket_get6_sk(const struct sk_buff * skb, struct xt_action_param * par);
+#endif
